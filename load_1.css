@@ -1,0 +1,86 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  height:100vh;
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #a2ade7;
+}
+
+.switch{
+  cursor: pointer;
+  position: relative;
+}
+
+.switch input{
+  display:none;
+}
+
+.switch::before{
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: '';
+  display: block;
+  width: 60px;
+  height: 32px;
+  background-color: white;
+  border-radius: 16px;
+}
+
+input+.line::before,
+input+.line::after{
+  position: absolute;
+  top: 14px;
+  left: 4px;
+  content:'';
+  width: 24px;
+  height: 4px;
+
+  background-color: #d3d4ec;
+  transition: .3s;
+}
+
+input +.line::before{
+  transform: scaleX(0);
+  left: 4px;
+  transform-origin: left;
+}
+
+input +.line::after{
+  transform: scaleX(1);
+  left: 32px;
+  transform-origin: right;
+}
+
+input:checked+.line::before{
+  transform: scaleX(1);
+}
+input:checked+.line::after{
+  transform: scaleX(0);
+}
+
+input+.line span::before{
+  position: absolute;
+  top: 4px;
+  left:4px;
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 4px #d3d4ec;
+  background-color: #fff;
+  transition: .3s;
+}
+
+input:checked+.line span::before{
+  box-shadow: inset 0 0 0 14px #275efe;
+  left: 32px;
+}
